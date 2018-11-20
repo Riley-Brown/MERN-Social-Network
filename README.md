@@ -2,9 +2,8 @@ Social Network project using the MERN Stack. Followed along with Brad Traversy's
 
 Make a folder called config, then make a file and put your Mlab key in there. Example:
 
-```module.exports = {
+````module.exports = {
 mongoURI:
 "<YOUR-MLAB-DATABASE-URI-LINK>"
-};
-
-```
+};```
+````
