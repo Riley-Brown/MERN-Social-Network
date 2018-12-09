@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
-import classnames from "classnames";
 import TextFieldGroup from "../TextFieldGroup";
 
 class Login extends Component {
@@ -85,7 +84,7 @@ class Login extends Component {
   }
 }
 
-Login.Proptypes = {
+Login.propTypes = {
   loginUser: Proptypes.func.isRequired,
   auth: Proptypes.object.isRequired,
   errors: Proptypes.object.isRequired
