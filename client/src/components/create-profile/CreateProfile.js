@@ -5,6 +5,8 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
+import { createProfile } from "../../actions/profileActions";
+import { withRouter } from "react-router-dom";
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
@@ -26,9 +28,30 @@ class CreateProfile extends Component {
       errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.comapny,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram
+    };
+    this.props.createProfile(profileData, this.props.history);
   };
   onChange = e => {
     this.setState({
@@ -93,7 +116,7 @@ class CreateProfile extends Component {
       { label: "Junior Developer", value: "Junior Developer" },
       { label: "Senior Developer", value: "Senior Developer" },
       { label: "Manager", value: "Manager" },
-      { label: "Student of Learning", value: "Student or Learning" },
+      { label: "Student or Learning", value: "Student or Learning" },
       { label: "Instructor or Teacher", value: "Instructor or Teacher" },
       { label: "Intern", value: "Intern" },
       { label: "Other", value: "Other" }
@@ -176,6 +199,7 @@ class CreateProfile extends Component {
                 />
                 <div className="mb-3">
                   <button
+                    type="button"
                     onClick={() => {
                       this.setState(prevState => ({
                         displaySocialInputs: !prevState.displaySocialInputs
@@ -211,4 +235,7 @@ const mapStateToprops = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToprops)(CreateProfile);
+export default connect(
+  mapStateToprops,
+  { createProfile }
+)(withRouter(CreateProfile));
