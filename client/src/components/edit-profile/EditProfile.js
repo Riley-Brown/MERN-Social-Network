@@ -42,7 +42,7 @@ class EditProfile extends Component {
       const skillsCSV = profile.skills.join(",");
 
       // if profile field doesn't exist, make empty string
-      profile.company = !isEmpty(profile.comapny) ? profile.comapny : "";
+      profile.company = !isEmpty(profile.company) ? profile.company : "";
       profile.website = !isEmpty(profile.website) ? profile.website : "";
       profile.location = !isEmpty(profile.location) ? profile.location : "";
       profile.githubusername = !isEmpty(profile.githubusername)
@@ -69,7 +69,7 @@ class EditProfile extends Component {
       // set comonent field state
       this.setState({
         handle: profile.handle,
-        company: profile.comapny,
+        company: profile.company,
         website: profile.website,
         location: profile.location,
         status: profile.status,
@@ -92,7 +92,7 @@ class EditProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      company: this.state.comapny,
+      company: this.state.company,
       website: this.state.website,
       location: this.state.location,
       status: this.state.status,
