@@ -61,9 +61,6 @@ class AddEducation extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8-m-auto">
-              <Link to="/dashboard" className="btn btn-light">
-                Go Back
-              </Link>
               <h1 className="display-4 text-center">Add Education</h1>
               <p className="lead text-center">
                 Add any school, bootcamp, ect that you have attended.
