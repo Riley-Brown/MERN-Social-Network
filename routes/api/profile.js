@@ -46,8 +46,10 @@ router.get(
 // @desc    Get all profiles
 // @access  Public
 router.get("/all", (req, res) => {
+  const errors = {};
+
   Profile.find()
-    .populate("users", ["name", "avatar"])
+    .populate("user", ["name", "avatar"])
     .then(profiles => {
       if (!profiles) {
         errors.noprofile = "There are no profiles";
