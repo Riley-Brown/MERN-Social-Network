@@ -106,5 +106,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  { deletePost, addLike, removeLike }
 )(PostItem);
